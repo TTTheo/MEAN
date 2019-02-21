@@ -6,6 +6,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    res.json({"name":"DJ","age":24,"contact":{"phone":8573008150,"email":"zhjiang@bu.edu"}});
+    res.send(req.body);
 });
 module.exports = router;
