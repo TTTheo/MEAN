@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <style>
+    .center {
+      margin: auto;
+      width: 60%;
+      border: 3px solid #73AD21;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<div id="container">
+  <p>
+  <div id="currentDateTime"></div>
+  <div id="dayOfTheWeek"></div>
+  </p>
+</div>
+<script>
+  // $.getJSON('http://worldclockapi.com/api/json/est/now',function (clock) {
+  //   console.log(clock) ;
+  // })
+  let url = "http://worldclockapi.com/api/json/utc/now";
+
+  $.ajax({
+    method: "GET",
+    cache: false,
+    url: url,
+    success: function(data) {
+      document.getElementById('dayOfTheWeek').innerHTML = data.dayOfTheWeek;
+      document.getElementById('currentDateTime').innerHTML = "Current Time is " + data.currentDateTime;
+      console.log(data) ;
+    },
+    error: function(error) {
+      //What do you want to do with the error?
+    },
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+</html>

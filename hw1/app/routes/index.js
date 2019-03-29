@@ -5,11 +5,10 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'DJ' });
 });
-router.get('/users', function(req, res, next) {
-  res.send('ohio');
-});
-router.get('/users/foo', function(req, res, next) {
-  res.send('wave'); //http://localhist:3000/users/foo
-});
-
+// router.get('/data',function(req,res,next){
+// //   res.send({name:'DJ',phone:8573008150});
+// // });
+// router.delete('/data',function (req,res,next) {
+//   res.
+// })
 module.exports = router;

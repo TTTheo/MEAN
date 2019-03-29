@@ -1,18 +1,19 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const clog = require('./middleware/clog.js');
 
 
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var hw1Router = require('./routes/hw1');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const hw1Router = require('./routes/hw1');
 
-var app = express();
+const app = express();
 
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // view engine setup
@@ -20,6 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+app.use(clog());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
